@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <!-- 定义CSS样式，作用于所有img元素 -->
+    <style>
+        /* 设置所有图片的宽度为300像素 */
+        img{
+            width: 300px;
+            /* 为图片指定名为'anime'的动画 */
+            animation-name: anime;
+            /* 设置动画的持续时间为1秒 */
+            animation-duration: 1s;
+            /* 设置动画无限循环播放 */
+            animation-iteration-count: infinite;
+            /* 设置动画在每次循环结束后反向播放 */
+            animation-direction: alternate;
+        }
+        /* 定义名为'anime'的动画关键帧 */
+        @keyframes anime {
+            /* 动画起始状态：位置不变，沿Y轴旋转180度 */
+            from {transform: translate(0) rotateY(180deg);}
+            /* 动画进行到50%时：向右平移1000px，沿Y轴旋转180度 */
+            50% {transform: translate(1000px) rotateY(180deg);}
+            /* 动画进行到51%时：位置不变，沿Y轴旋转角度变为0度 */
+            51% {transform: translate(1000px) rotateY(0deg);}
+            /* 动画结束状态：回到起始位置，沿Y轴旋转角度为0度 */
+            to {transform: translate(0) rotateY(0deg);}
+        }
+    </style>
+    <body>
+    <img src="" alt="">
+</body>
+</html>

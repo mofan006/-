@@ -1,0 +1,105 @@
+<!-- 神人大赏.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>神人大赏</title>
+    <link rel="stylesheet" href="神人大赏.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<style>
+</style>
+<body class="background">
+    <div class="h1">
+    <h1>
+        <p align="center">神人大赏</p>
+    </h1>
+       
+    <div class="display-video">
+        <video id="myVideo" src="神人音频\《我是奶龙の小曲》《奶龙跳舞の小曲》今夜星光闪闪DJ.mp4" controls></video>
+    </div>
+    <div class="container-button-display">
+        <img id="image" src="神人大赏图片/nialong/3e3b5c4d10d53e74c42ceda0891c99dc.jpeg" alt="图片" class="visible">
+        <button class="switch-button" id="prev">上一张</button>
+        <button class="switch-button" id="next">下一张</button>
+    </div>
+
+    <div class="image-container">
+        <div class="image-item">
+            <a href="https://space.bilibili.com/402574397?spm_id_from=333.337.0.0">
+                <img src="神人大赏图片/sxc.jpg" alt="孙笑川258">
+            </a>
+        </div>
+        <div class="image-item">
+            <a href="https://space.bilibili.com/1437582453?spm_id_from=333.337.0.0">
+                <img src="神人大赏图片/dxl.jpeg" alt="東雪蓮Official">
+            </a>
+        </div>
+    </div>
+
+    <div class="image-container">
+        <div class="image-item">
+            <a href="https://space.bilibili.com/1463028352?spm_id_from=333.337.0.0">
+                <img src="神人大赏图片/dzzz.jpeg" alt="礼堂丁真">
+            </a>
+        </div>
+        <div class="image-item">
+            <a href="https://space.bilibili.com/1265680561?spm_id_from=333.337.0.0">
+                <img src="神人大赏图片/taffi.png" alt="永雏塔菲">
+            </a>
+        </div>
+        <div class="image-item">
+            <a href="https://space.bilibili.com/628845081">
+                <img src="神人大赏图片/otto.jpg" alt="otto">
+            </a>
+        </div>
+    </div>
+    <script>
+        const video = document.getElementById('myVideo');
+        const images = [
+            "神人大赏图片/nialong/3e3b5c4d10d53e74c42ceda0891c99dc.jpeg",
+            "神人大赏图片/nialong/4e8229bae77fc0886bc6a11a3a64e642.jpeg",
+            "神人大赏图片/nialong/9aa4b5b7723f95a61bb974db7fe2b2f2.jpeg",
+            "神人大赏图片/nialong/245fd0aa1d1be323ee9344dae2dc8096.jpeg",
+            "神人大赏图片/nialong/382acb836c55a994265569277453a490.jpeg",
+        ];
+
+             let currentIndex = 0;
+        const imageElement = document.getElementById("image");
+        const prevButton = document.getElementById("prev");
+        const nextButton = document.getElementById("next");
+
+        prevButton.addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            imageElement.src = images[currentIndex];
+        });
+
+        nextButton.addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            imageElement.src = images[currentIndex];
+        });
+
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        window.addEventListener('scroll', () => {
+            if (isInViewport(video)) {
+                video.play().catch(error => {
+                    console.error('视频播放失败:', error);
+                });
+            } else {
+                video.pause();
+            }
+        });
+    </script>
+
+</body>
+</html>

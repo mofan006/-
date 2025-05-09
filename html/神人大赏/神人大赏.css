@@ -1,0 +1,126 @@
+/* 神人大赏.css */
+/* 页面背景样式 */
+.background {
+    background-color: #000000; /* 纯黑色背景 */
+}
+.h1{
+    color: aliceblue;
+}
+
+/* 主容器样式：用于包含按钮和图片展示区域 */
+.container-button-display {
+    position: relative;  /* 相对定位，作为子元素定位基准 */
+    width: 100%;         /* 宽度占满父容器 */
+    max-width: 1200px;   /* 最大宽度限制 */
+    height: auto;        /* 高度自适应内容 */
+    margin: 0 auto;      /* 水平居中 */
+    overflow: hidden;    /* 隐藏溢出内容 */
+}
+
+.display-video{
+    text-align: center;
+    height: 500px;
+    padding-bottom: 20px;
+    padding-left: 90px;
+    padding-right: 90px;
+}
+
+/* 主图片样式：用于展示主要图片 */
+#image {
+    width: 100%;        /* 宽度占满容器 */
+    max-width: 100%;    /* 最大宽度不超过容器 */
+    height: auto;       /* 高度自适应 */
+    object-fit: contain; /* 保持图片比例完整显示 */
+    border-radius: 5px;  /* 5像素圆角 */
+}
+
+/* 容器底部渐变遮罩：创建视觉层次效果 */
+.container-button-display::after {
+    content: '';        /* 伪元素必需属性 */
+    position: absolute; /* 绝对定位 */
+    bottom: 0;          /* 定位到底部 */
+    left: 0;            /* 从左侧开始 */
+    right: 0;           /* 延伸到右侧 */
+    height: 80px;       /* 遮罩高度 */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent); /* 从下到上的渐变 */
+    pointer-events: none; /* 防止遮罩阻挡鼠标事件 */
+}
+
+/* 切换按钮基础样式 */
+.switch-button {
+    position: absolute;    /* 绝对定位 */
+    bottom: 20px;          /* 距离底部20px */
+    z-index: 10;           /* 堆叠层级 */
+    padding: 10px 20px;    /* 内边距 */
+    font-size: 16px;       /* 字体大小 */
+    color: white;          /* 白色文字 */
+    background-color: rgba(0, 0, 0, 0); /* 透明背景 */
+    border: none;          /* 无边框 */
+    border-radius: 5px;    /* 5像素圆角 */
+    cursor: pointer;       /* 鼠标指针样式 */
+    outline: none;         /* 无轮廓线 */
+    transition: all 0.3s ease; /* 所有属性0.3秒缓动过渡 */
+}
+
+/* 切换按钮悬停状态 */
+.switch-button:hover {
+    background-color: rgba(0, 0, 0, 0); /* 半透明黑色背景 */
+    text-decoration: underline; /* 显示下划线 */
+}
+
+/* 上一个按钮定位 */
+#prev {
+    right: 200px;  /* 距离右侧200px */
+}
+
+/* 下一个按钮定位 */
+#next {
+    right: 20px;   /* 距离右侧20px */
+}
+
+/* 图片网格容器：用于排列多个图片项 */
+.image-container {
+    display: flex;          /* 启用弹性布局 */
+    justify-content: space-around; /* 项目周围均匀分布 */
+    align-items: flex-start; /* 顶部对齐 */
+    flex-wrap: wrap;        /* 允许换行 */
+    padding: 0;             /* 无内边距 */
+    max-width: 1200px;      /* 最大宽度限制 */
+    margin: 0 auto;         /* 水平居中 */
+}
+
+/* 单个图片项容器 */
+.image-item {
+    text-align: center;     /* 内容居中 */
+    margin-bottom: 20px;    /* 底部外边距 
+    max-width: 300px;        */
+    height: 310px;          /* 固定高度 */ 
+    position: relative;     /* 相对定位，用于子元素定位 */
+}
+
+/* 图片项中的图片样式 */
+.image-item img {
+    width: auto;           /* 宽度占满容器 */
+    max-width: auto;      /* 最大宽度限制 */
+    height: 300px;        /* 高度自适应 */
+    border-radius: 5px;     /* 5像素圆角 */
+}
+
+/* 图片项底部渐变遮罩 */
+.image-item::after {
+    content: '';        /* 伪元素必需属性 */
+    position: absolute; /* 绝对定位 */
+    bottom: 0;          /* 定位到底部 */
+    left: 0;            /* 从左侧开始 */
+    right: 0;           /* 延伸到右侧 */
+    height: 40px;       /* 遮罩高度 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)); /* 从上到下的渐变 */
+    pointer-events: none; /* 防止遮罩阻挡鼠标事件 */
+
+}
+.image-item:hover {
+    border-radius: 50%;
+    transition-property:border-radius;
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+}
